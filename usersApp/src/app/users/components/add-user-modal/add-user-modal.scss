@@ -1,0 +1,40 @@
+:host {
+	.name-block,
+	.name-input,
+	.active-block,
+	.buttons-block,
+	.input-field-wrapper {
+		display: flex;
+	}
+
+	.name-block,
+	.input-field-wrapper {
+		flex-direction: column;
+	}
+
+	.active-block {
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.name-input {
+		gap: 1rem;
+		align-items: baseline;
+	}
+
+	.error-message {
+		color: rgb(252, 67, 67);
+	}
+
+	.form-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.buttons-block {
+		justify-content: flex-end;
+		gap: 1rem;
+	}
+}
+

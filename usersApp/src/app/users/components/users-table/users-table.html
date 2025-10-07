@@ -1,1 +1,36 @@
-<p>users-table works!</p>
+<p-panel [showHeader]="false">
+	<ng-template #content>
+		<p-table [value]="(users$ | async)!" dataKey="id">
+			<ng-template #caption>
+				<div class="users-table-header">
+					<h1>Users</h1>
+					<p-button
+						(click)="openAddUser()"
+						[disabled]="!(canAddUser$ | async)"
+						>Add user</p-button
+					>
+				</div>
+			</ng-template>
+			<ng-template #header>
+				<tr>
+					<th>&numero;</th>
+					<th>Name</th>
+					<th>Active</th>
+				</tr>
+			</ng-template>
+			<ng-template #body let-user>
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.name }}</td>
+					<td>
+						<p-checkbox
+							[binary]="true"
+							[(ngModel)]="user.isActive"
+							(onChange)="toggleActive(user.id)"
+						/>
+					</td>
+				</tr>
+			</ng-template>
+		</p-table>
+	</ng-template>
+</p-panel>

@@ -1,1 +1,47 @@
-<p>add-user-modal works!</p>
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+	<div class="form-container">
+		<div class="name-block">
+			<div class="name-input">
+				<label for="name">Name</label>
+				<div class="input-field-wrapper">
+					<input
+						id="name"
+						type="text"
+						pInputText
+						formControlName="name"
+						placeholder="Enter user name"
+					/>
+					@if(addUserForm.controls.name.errors?.["required"]) {
+					<small class="error-message"> Name is required </small>
+					} @if(addUserForm.controls.name.errors?.["duplicateName"]) {
+					<small class="error-message"> This name is already taken </small>
+					}
+				</div>
+			</div>
+		</div>
+
+		<div class="active-block">
+			<label for="isActive">Active</label>
+			<p-checkbox
+				binary="true"
+				formControlName="isActive"
+				inputId="isActive"
+			></p-checkbox>
+		</div>
+
+		<div class="buttons-block">
+			<p-button
+				type="button"
+				label="Cancel"
+				[outlined]="true"
+				(onClick)="closeDialog()"
+			></p-button>
+			<p-button
+				type="submit"
+				label="Create"
+				[disabled]="addUserForm.invalid || addUserForm.controls.name.pending"
+				class="p-button-primary"
+			></p-button>
+		</div>
+	</div>
+</form>
