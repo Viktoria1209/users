@@ -3,6 +3,7 @@ import {
 	addEntities,
 	updateEntities,
 	selectAllEntities,
+	deleteEntities,
 } from "@ngneat/elf-entities";
 import { usersStore } from "./users.store";
 import { map } from "rxjs";
@@ -33,6 +34,10 @@ export class UsersService {
 
 	public addUser(user: User): void {
 		usersStore.update(addEntities(user));
+	}
+
+	public removeUser(id: number): void {
+		usersStore.update(deleteEntities(id));
 	}
 }
 

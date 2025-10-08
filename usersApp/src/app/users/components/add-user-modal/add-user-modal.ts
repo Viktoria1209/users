@@ -11,6 +11,7 @@ import { InputText } from "primeng/inputtext";
 
 @Component({
 	selector: "add-user-modal",
+	standalone: true,
 	imports: [CheckboxModule, ReactiveFormsModule, ButtonModule, InputText],
 	templateUrl: "./add-user-modal.html",
 	styleUrl: "./add-user-modal.scss",

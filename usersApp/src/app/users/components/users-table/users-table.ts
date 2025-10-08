@@ -1,15 +1,18 @@
 import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
-import { UsersService } from "../../services";
+import { FormsModule } from "@angular/forms";
+
+import { DialogService, DynamicDialogModule } from "primeng/dynamicdialog";
 import { PanelModule } from "primeng/panel";
 import { TableModule } from "primeng/table";
 import { CheckboxModule } from "primeng/checkbox";
 import { ButtonModule } from "primeng/button";
-import { FormsModule } from "@angular/forms";
-import { User } from "../../interfaces";
-import { AddUserModal } from "../add-user-modal";
-import { DialogService, DynamicDialogModule } from "primeng/dynamicdialog";
+
 import { firstValueFrom } from "rxjs";
+
+import { User } from "../../interfaces";
+import { UsersService } from "../../services";
+import { AddUserModal } from "../add-user-modal";
 
 @Component({
 	selector: "users-table",
